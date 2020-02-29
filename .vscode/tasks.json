@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [{
+            "label": "Run",
+            "type": "shell",
+            "command": "./a.out",
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            },
+            "dependsOn": [
+                "Build"
+            ]
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "clang++ -std=c++11 -Wall -Werror -Wfatal-errors -g ${file} -o a.out",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
