@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;  // don't do this in head files!
+using namespace std;  // don't do this in header files!
 
 class CloneableObject {
   int a_;
