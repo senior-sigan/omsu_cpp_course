@@ -2,3 +2,4 @@
 *.out
 *.dSYM
 .vagrant
+cmake-build-debug
