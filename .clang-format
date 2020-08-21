@@ -1,9 +1,9 @@
 # Run manually to reformat a file:
 # clang-format -i --style=file <file>
 BasedOnStyle: Google
-FixNamespaceComments: false
-ColumnLimit: 80
-UseTab: Never
-SpaceAfterTemplateKeyword: false
-SpaceAfterCStyleCast: true
-AllowShortFunctionsOnASingleLine: Empty
+# FixNamespaceComments: false
+# ColumnLimit: 80
+# UseTab: Never
+# SpaceAfterTemplateKeyword: false
+# SpaceAfterCStyleCast: true
+# AllowShortFunctionsOnASingleLine: Empty
