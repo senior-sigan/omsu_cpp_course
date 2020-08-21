@@ -3,4 +3,4 @@
 *.dSYM
 .vagrant
 cmake-build-debug
-main.out
+main
