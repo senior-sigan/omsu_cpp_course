@@ -1,7 +1,7 @@
 #include "test.h"
 
 int add(int a, int b) {
-  // напиши меня!
+  // TODO: напиши меня!
   return a + b;
 }
 
