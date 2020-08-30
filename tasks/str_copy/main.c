@@ -1,12 +1,16 @@
+#include <stdlib.h>
+
 #include "test.h"
 
-int add(int a, int b) {
+/**
+ * Копирует нультерминальную строку из src в dst.
+ *
+ * @param dest указатель на массив символов, куда скопировать строку.
+ * @param src указатель на нультерминальну строку, откуда копировать.
+ */
+void str_copy(char* dst, const char* src) {
   // TODO: напиши меня!
-  return a + b;
-}
-
-void cli(void) {
-  // TODO: напиши меня
+  dst[0] = src[0];  // исправь меня!
 }
 
 void test(void) {
@@ -17,12 +21,19 @@ void test(void) {
   // то в консоли вы увидите ошибку и пояснение.
   // Сдавайте лабу, когда устраните все ошибки в тестах.
   // Если возникли трудности, то попросите преподавателя вам помочь ^_^.
-
-  ASSERT_INT(5, ==, add(2, 3));
+  {
+    char str[6];
+    str_copy(str, "Hello");
+    ASSERT_STR_EQUAL(str, "Hello");
+  }
+  {
+    char* str = (char*)calloc(6, sizeof(char));
+    str_copy(str, "Hello");
+    ASSERT_STR_EQUAL(str, "Hello");
+  }
 }
 
 int main(void) {
   test();
-  cli();
   return 0;
 }
