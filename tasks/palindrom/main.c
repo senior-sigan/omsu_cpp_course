@@ -9,7 +9,13 @@ int palindrom(long n) {
   return n;
 }
 
-int main(void) {
+void cli() {
+  // 1. запросите у пользователя число через консоль
+  // 2. Примените к этому числу функцию palindrom
+  // 3. Напишите пользователю результат - палиндром ли введеное число
+}
+
+void test(void) {
   // Это тесты. НЕ УДАЛЯЙТЕ ИХ!
   // Преподаватель будет грустить, если вы удалите тесты T_T.
   // Тесты проверяют, что ваш код работает правильно.
@@ -26,5 +32,10 @@ int main(void) {
   ASSERT_FALSE(palindrom(42));
   ASSERT_FALSE(palindrom(42240));
   ASSERT_FALSE(palindrom(345643));
+}
+
+int main(void) {
+  test();
+  cli();
   return 0;
 }

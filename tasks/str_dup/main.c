@@ -16,11 +16,8 @@
  */
 char* str_dup(const char* string) {
   // TODO: напиши меня!
+  // используйте функцию str_copy из предыдущей практики
   return string;  // исправь меня!
-}
-
-void cli(void) {
-  // TODO: напиши меня
 }
 
 void test(void) {
@@ -40,6 +37,5 @@ void test(void) {
 
 int main(void) {
   test();
-  cli();
   return 0;
 }

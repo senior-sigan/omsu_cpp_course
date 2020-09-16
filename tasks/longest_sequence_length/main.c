@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "test.h"
 
 #define N 10
@@ -11,7 +13,15 @@ int longest_sequence_length(int array[N]) {
   return array[0];
 }
 
-int main(void) {
+void cli_interface(void) {
+  // 1. запросите через консоль у пользователя 10 чисел
+  // 2. сохраните введеные числа в массив array
+  // 3. выведите результат выполнения longest_sequence_length в консоль
+
+  // int array[N];
+}
+
+void test(void) {
   // Это тесты. НЕ УДАЛЯЙТЕ ИХ!
   // Преподаватель будет грустить, если вы удалите тесты T_T.
   // Тесты проверяют, что ваш код работает правильно.
@@ -39,5 +49,10 @@ int main(void) {
     int array[N] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
     ASSERT_INT(2, ==, longest_sequence_length(array));
   }
+}
+
+int main(void) {
+  test();
+  cli_interface();
   return 0;
 }

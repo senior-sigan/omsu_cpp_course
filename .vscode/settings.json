@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "array": "c"
+        "array": "c",
+        "*.m": "c",
+        "cstdlib": "c"
     }
 }

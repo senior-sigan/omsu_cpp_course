@@ -10,7 +10,13 @@ int prime_palindrom(int n) {
   return n;
 }
 
-int main(void) {
+void cli(void) {
+  // 1. Запросите у пользователя ввести число
+  // 2. Примените над ним функцию prime_palindrom
+  // 3. Выведите результат в консоль
+}
+
+void test(void) {
   // Это тесты. НЕ УДАЛЯЙТЕ ИХ!
   // Преподаватель будет грустить, если вы удалите тесты T_T.
   // Тесты проверяют, что ваш код работает правильно.
@@ -23,5 +29,10 @@ int main(void) {
   ASSERT_INT(11, ==, prime_palindrom(100));
   ASSERT_INT(313, ==, prime_palindrom(350));
   ASSERT_INT(353, ==, prime_palindrom(360));
+}
+
+int main(void) {
+  test();
+  cli();
   return 0;
 }
