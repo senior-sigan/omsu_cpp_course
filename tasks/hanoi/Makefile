@@ -4,15 +4,15 @@ LDFLAGS = -lm
 SOURCES = main.c
 STYLE = Google
 
-all: main reformat run
+all: main.out reformat run
 
 run:
-	./main
+	./main.out
 
 reformat:
 	clang-format -i --style=$(STYLE) $(SOURCES)
 
 main.out: main.c
-	$(CC) $(CFLAGS) $(LDFLAGS) $(SOURCES) -o main
+	$(CC) $(CFLAGS) $(LDFLAGS) $(SOURCES) -o main.out
 
-.PHONY = run all reformat
+.PHONY: run all reformat

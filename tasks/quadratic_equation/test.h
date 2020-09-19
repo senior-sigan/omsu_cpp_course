@@ -10,8 +10,7 @@
 #include <stdio.h>   // подключаем printf
 #include <string.h>  // подключаем сравнение строк
 
-#define EPSILON \
-  0.0000001  // точность по-умолчанию для сравнения числе с плавающей точкой
+#define EPSILON 0.00001  // точность для сравнения числе с плавающей точкой
 
 #define ASSERT_ANY(T, fmt, expected, op, actual)                            \
   do {                                                                      \
@@ -23,6 +22,9 @@
              actual_);                                                      \
     }                                                                       \
   } while (0)
+
+#define ASSERT_PTR_EQUAL(expected, actual) \
+  ASSERT_ANY(void*, "p", expected, ==, actual)
 
 #define ASSERT_UINT(expected, op, actual) \
   ASSERT_ANY(unsigned int, "u", expected, op, actual)
@@ -58,16 +60,18 @@
     }                                                                      \
   } while (0)
 
-#define ASSERT_ALMOST_EQUAL(T, fmt, expected, actual, precision)            \
-  do {                                                                      \
-    const T expected_ = (expected);                                         \
-    const T actual_ = (actual);                                             \
-    const T precision_ = (precision);                                       \
-    const T diff = expected_ - actual_;                                     \
-    if ((diff >= 0 && diff > precision_) || (-diff > precision_)) {         \
-      printf("ERROR> %s:%d: expected %s == %s, got %" fmt " == %" fmt "\n", \
-             __FILE__, __LINE__, #expected, #actual, expected_, actual_);   \
-    }                                                                       \
+#define ASSERT_ALMOST_EQUAL(T, fmt, expected, actual, precision)         \
+  do {                                                                   \
+    const T expected_ = (expected);                                      \
+    const T actual_ = (actual);                                          \
+    const T precision_ = (precision);                                    \
+    const T diff = expected_ - actual_;                                  \
+    if ((diff >= 0 && diff > precision_) || (-diff > precision_)) {      \
+      printf("ERROR> %s:%d: expected %s == %s, got %" fmt " == %" fmt    \
+             ", epsilon = %f\n",                                         \
+             __FILE__, __LINE__, #expected, #actual, expected_, actual_, \
+             precision);                                                 \
+    }                                                                    \
   } while (0)
 
 #define ASSERT_FLOAT_EQUAL(expected, actual, precision) \

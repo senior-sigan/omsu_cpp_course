@@ -26,9 +26,6 @@
 #define ASSERT_PTR_EQUAL(expected, actual) \
   ASSERT_ANY(void*, "p", expected, ==, actual)
 
-#define ASSERT_PTR_NOT_EQUAL(expected, actual) \
-  ASSERT_ANY(void*, "p", expected, !=, actual)
-
 #define ASSERT_UINT(expected, op, actual) \
   ASSERT_ANY(unsigned int, "u", expected, op, actual)
 
