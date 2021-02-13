@@ -1,5 +1,5 @@
 # Основы программирования. ФКН ОмГУ
 
-Сайт курса: [senior-sigan.net/teaching/cs1_2019](https://senior-sigan.net/teaching/cs1_2019/)
+Сайт курса: [senior-sigan.net/fcs-programming-in-cpp](https://senior-sigan.net/fcs-programming-in-cpp)
 
 В этом репозитории лежит код с лекций.
