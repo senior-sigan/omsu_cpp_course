@@ -2,7 +2,7 @@ CC = clang++
 CFLAGS = -std=c++17 -pedantic -pedantic-errors -Wall -Werror -Wextra
 LDFLAGS = -lm
 SOURCES = main.cpp
-HEADERS = fraction.h test.h
+HEADERS = array_list.h linked_list test.h
 STYLE = Google
 FORMAT_FLAGS = -i --sort-includes
 
