@@ -7,6 +7,8 @@
 #include "ops.h"
 #include "reg.h"
 
+// НЕ редактируйте этот файл.
+
 namespace fasm {
 class Memory {
   std::map<Register, int> registers{{r0, 0}, {r1, 0}, {r2, 0}, {line, 0}, {cmp, 0}};

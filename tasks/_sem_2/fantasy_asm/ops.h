@@ -1,5 +1,7 @@
 #pragma once
 
+// НЕ редактируйте этот файл.
+
 namespace fasm {
 
 class Memory;        // forward declaration

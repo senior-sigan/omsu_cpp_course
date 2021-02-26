@@ -2,6 +2,8 @@
 
 #include "reg.h"
 
+// НЕ редактируйте этот файл.
+
 namespace fasm {
 
 class Memory;  // forward declaration
@@ -22,7 +24,7 @@ class ValueLiteral : public Value {
   const int value_;
 
  public:
-  explicit ValueLiteral(int value) : value_(value) {}
+  explicit ValueLiteral(int value);
   int Get(const Memory& mem) const override;
 };
 
@@ -30,7 +32,7 @@ class ValueRegister : public MutableValue {
   const Register reg_;
 
  public:
-  explicit ValueRegister(Register reg) : reg_(reg) {}
+  explicit ValueRegister(Register reg);
   void Set(Memory& mem, int value) override;
   int Get(const Memory& mem) const override;
 };

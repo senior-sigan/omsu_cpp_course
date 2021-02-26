@@ -2,6 +2,8 @@
 
 #include "mem.h"
 
+// НЕ редактируйте этот файл.
+
 namespace fasm {
 class Interpreter {
  public:

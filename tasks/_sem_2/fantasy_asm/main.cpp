@@ -3,6 +3,7 @@
 #include "asm.h"
 #include "mem.h"
 #include "ops.h"
+#include "parser.h"
 #include "reg.h"
 #include "val.h"
 
@@ -62,10 +63,10 @@ void TestParser() {
 
   Memory mem;
 
-  // Parser parser;
-  // while (parser.ParseLine()) {
-  //   mem.PushOp(parser.GetCurrentOperation());
-  // }
+  Parser parser(code);
+  while (parser.ParseLine()) {
+    mem.PushOp(parser.GetCurrentOperation());
+  }
 
   Interpreter interpreter;
   interpreter.Run(mem);
