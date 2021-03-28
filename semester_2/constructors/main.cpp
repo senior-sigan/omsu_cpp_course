@@ -1,5 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <string>
+#include <utility>
 
 using namespace std;  // don't do this in header files!
 
@@ -106,11 +108,10 @@ int main() {
     cout << "Example 3" << endl;
     // giveMeRef(CloneableObject(42, "Hello!")); // cannot call because argument
     // is rvalue but we expected something with an address in memory
-    giveMeConstRef(
-        CloneableObject(42, "Hello!"));  // it works, because const ref can work
-                                         // with temporal objects
-    giveMeCopy(CloneableObject(
-        42, "Hello!"));  // hmmm, no copy constructor was called.. interesting!
+    giveMeConstRef(CloneableObject(42, "Hello!"));  // it works, because const ref can work
+                                                    // with temporal objects
+    giveMeCopy(
+        CloneableObject(42, "Hello!"));  // hmmm, no copy constructor was called.. interesting!
     //    giveMePtr(&CloneableObject(42, "Hello!")) // cannot get address of a
     //    temporal object
   }
@@ -124,7 +125,7 @@ int main() {
     assert(co.GetA() == 42);
     assert(co.GetB() == "Hello!");
     CloneableObject co2 = move(co);
-    co.Print(); // dangerous!
+    co.Print();  // dangerous!
     assert(co.GetA() == 0);
     assert(co.GetB().empty());
     assert(co2.GetA() == 42);
