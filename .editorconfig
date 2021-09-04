@@ -1,17 +1,20 @@
+# editorconfig.org
+
 root = true
 
 [*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
 indent_style = space
-max_line_length = 120
-
-[*.{cpp,hpp,c,h,mm}]
-trim_trailing_whitespace = true
 insert_final_newline = true
-indent_size = 2
+trim_trailing_whitespace = true
 
-[.travis.yml]
-indent_style = space
-indent_size = 2
+[*.toml]
+max_line_length = 100
+
+[*.md]
+trim_trailing_whitespace = false
 
 [Makefile]
 indent_style = tab

@@ -1,6 +1,4 @@
-.idea
-*.out
-*.dSYM
-.vagrant
-cmake-build-debug
-main
+public/
+.idea/
+resources
+.DS_Store
