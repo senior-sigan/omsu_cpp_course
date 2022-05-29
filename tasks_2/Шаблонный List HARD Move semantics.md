@@ -1,3 +1,7 @@
+---
+tag: cpp, templates, move_semantics
+---
+
 # Шаблонный List HARD. Move semantics *
 
 ![img](/images/move.jpg)

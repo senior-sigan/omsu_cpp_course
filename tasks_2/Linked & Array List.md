@@ -1,3 +1,7 @@
+---
+tag: структуры данных
+---
+
 # Linked & Array List на С++
 
 Цель лабы - познакомиться с С++ на уже известной вам задаче:  [Список: LinkedList & ArrayList](/tasks_1/Список-LinkedList-&-ArrayList.md)

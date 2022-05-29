@@ -1,3 +1,7 @@
+---
+tag: cpp, raii, templates
+---
+
 # RAII + Templates. Smart Pointer
 
 В этой практике мы познакомимся с идиомой RAII и реализуем свои умные указатели.

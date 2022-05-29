@@ -1,5 +1,4 @@
 ---
-weight: 9
 replit: https://repl.it/@IlyaSiganov/List#main.c
 tag: выделение памяти, структура, структуры данных, указатели
 ---

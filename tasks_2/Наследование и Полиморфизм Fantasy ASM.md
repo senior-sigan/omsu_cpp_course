@@ -1,3 +1,7 @@
+---
+tag: cpp, ооп, полиморфизм
+---
+
 # Наследование и Полиморфизм. Fantasy ASM.
 
 ## Fantasy Assembler

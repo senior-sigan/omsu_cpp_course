@@ -1,5 +1,4 @@
 ---
-weight: 4.1
 replit: https://repl.it/@IlyaSiganov/swap#main.c
 tag: указатели
 ---

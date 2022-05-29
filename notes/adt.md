@@ -1,7 +1,6 @@
 ---
 title: АТД
 type: docs
-weight: 0
 bookShowToC: true
 ---
 
