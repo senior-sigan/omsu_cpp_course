@@ -1,0 +1,43 @@
+I"<h1 id="swap">Swap</h1>
+
+<p>Напишите функцию для 2 аргументов типа char, которая меняет местами их значения.</p>
+
+<p>Вам понадобится эта функция в <a href="Задом-наперёд.md">Задом наперёд</a></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "test.h"
+</span>
+<span class="cm">/**
+ * Меняет местами два символа.
+ *
+ * @param a указатель на один символ.
+ * @param b указатель на один символ.
+ */</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня!</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+
+  <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="sc">'b'</span><span class="p">;</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">ASSERT_CHAR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">);</span>
+    <span class="n">ASSERT_CHAR</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">test</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+:ET

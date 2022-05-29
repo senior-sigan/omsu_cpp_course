@@ -1,0 +1,157 @@
+I"EF<h1 id="классы-обыкновенная-дробь">Классы. Обыкновенная дробь</h1>
+
+<p><a href="https://repl.it/@IlyaSiganov/Fraction#fraction.h">Шаблон задачи на repl.it</a></p>
+
+<h2 id="рациональные-числа-или-дроби">Рациональные числа или Дроби</h2>
+
+<p><img src="/images/fraction0.png" alt="img" /></p>
+
+<p>Требуется создать абстракцию рациональных чисел с возможностью: создавать, складывать, вычитать, умножать, делить, сравнивать, печатать и превращать их в float number. Результаты должны быть всегда с наименьшим знаменателем (алгоритм Евклида в помощь). Целую часть выделять не надо.</p>
+
+<p><img src="/images/fraction1.png" alt="img" /></p>
+
+<p>Итого, нужен тип данных, который реализует следующие правила:</p>
+
+<!-- $$\frac{n_1}{d_1} + \frac{n_2}{d_2} = \frac{n_1 d_2 + n_2 d_1}{d_1 d_2}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn_1%7D%7Bd_1%7D%20%2B%20%5Cfrac%7Bn_2%7D%7Bd_2%7D%20%3D%20%5Cfrac%7Bn_1%20d_2%20%2B%20n_2%20d_1%7D%7Bd_1%20d_2%7D" alt="math" /></p>
+
+<!-- $$\frac{n_1}{d_1} - \frac{n_2}{d_2} = \frac{n_1 d_2 - n_2 d_1}{d_1 d_2}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn_1%7D%7Bd_1%7D%20-%20%5Cfrac%7Bn_2%7D%7Bd_2%7D%20%3D%20%5Cfrac%7Bn_1%20d_2%20-%20n_2%20d_1%7D%7Bd_1%20d_2%7D" alt="math" /></p>
+
+<!-- $$\frac{n_1}{d_1} * \frac{n_2}{d_2} = \frac{n_1 n_2}{d_1 d_2}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn_1%7D%7Bd_1%7D%20%2A%20%5Cfrac%7Bn_2%7D%7Bd_2%7D%20%3D%20%5Cfrac%7Bn_1%20n_2%7D%7Bd_1%20d_2%7D" alt="math" /></p>
+
+<!-- $$\frac{n_1}{d_1} / \frac{n_2}{d_2} = \frac{n_1 d_2}{d_1 n_2}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn_1%7D%7Bd_1%7D%20/%20%5Cfrac%7Bn_2%7D%7Bd_2%7D%20%3D%20%5Cfrac%7Bn_1%20d_2%7D%7Bd_1%20n_2%7D" alt="math" /></p>
+
+<!-- $${\frac{n_1}{d_1} = \frac{n_2}{d_2}} \Longleftrightarrow {n_1 d_2 = n_2 d_1}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=%7B%5Cfrac%7Bn_1%7D%7Bd_1%7D%20%3D%20%5Cfrac%7Bn_2%7D%7Bd_2%7D%7D%20%5CLongleftrightarrow%20%7Bn_1%20d_2%20%3D%20n_2%20d_1%7D" alt="math" /></p>
+
+<h2 id="чеклист">Чеклист</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Работа сделана по шаблону: <a href="https://repl.it/@IlyaSiganov/Fraction#fraction.h">Шаблон задачи на repl.it</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Создан класс <code class="language-plaintext highlighter-rouge">Fraction</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Числитель - целое число. Знаменатель - натуральное число (без нуля).</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Числитель и знаменатель - приватные поля класса. К ним есть Getter. (Сеттеры не нужны)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть конструктор, который принимает 2 аргумента - числитель и знаменатель</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть конструктор по-умолчанию, который делает знаменатель 1, а числитель 0.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Конструктор устанавливает инвариант
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />дробь несократима (алгоритм Евклида)</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />знаменатель не может быть 0. Иначе выбрасывать исключение <code class="language-plaintext highlighter-rouge">[std::logic_error](https://en.cppreference.com/w/cpp/error/logic_error)</code>.</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />если дробь отрицательная, то отрицательным может быть только числитель. Знаменатель всегда положительный!</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />если дробь равна 0, то числитель равен 0, а знаменатель 1.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Определены операторы: сложение, вычитание, деление, умножение.  Они создают правильную дробь!</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">Fraction</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"equal"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Определены операторы сравнения <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">==</code>, <code class="language-plaintext highlighter-rouge">≤</code>, <code class="language-plaintext highlighter-rouge">≥</code>, <code class="language-plaintext highlighter-rouge">≠</code></li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">Fraction</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nf">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"equal"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Определены операторы вывода и ввода из потока</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Fraction</span> <span class="n">r</span><span class="p">;</span>
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// тут с консоли пользователь ввел `1 2`</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// тут в консоль вывело 1/2.</span>
+</code></pre></div></div>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Определен оператор каста в double и float</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Fraction</span> <span class="nf">r</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// должно в консоль вывести 0.5 (плюс минус погрешность, естественно)</span>
+</code></pre></div></div>
+
+<ul class="task-list">
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />экземпляр класса можно положить в set (если определены операторы сравнения, то это автоматически возможно. По сути это просто проверка, что все работает)</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">set</span><span class="o">&lt;</span><span class="n">Fraction</span><span class="o">&gt;</span> <span class="n">rationals</span><span class="p">;</span>
+  <span class="n">rationals</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+  <span class="n">rationals</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+
+  <span class="n">map</span><span class="o">&lt;</span><span class="n">Fraction</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">name</span><span class="p">;</span>
+  <span class="n">name</span><span class="p">[</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s">"одна вторая"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Все операторы должны быть ЛИБО константными методами ЛИБО функциями расширениями</p>
+  </li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyNumber</span> <span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="c1">// у функции левый операнд - это this</span>
+  <span class="c1">// правый операнд - это rhs</span>
+  <span class="c1">// функция возвращает НОВЫЙ объет, а не модифицирует существующий </span>
+  <span class="n">MyNumber</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">MyNumber</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Или вместо метода можно сделать функцию</span>
+<span class="c1">// Но у нее будет 2 аргумента - левый и правый операнд</span>
+<span class="n">MyNumber</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">MyNumber</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyNumber</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="как-выбрасывать-исключения-на-с">Как выбрасывать исключения на с++</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdexcept&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">my_super_function</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n">invalid_argument</span><span class="p">(</span><span class="s">"b cannot be zero"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// some code</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">my_super_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"OK"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">invalid_argument</span><span class="o">&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"IMPOSSIBLE"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">my_super_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"IMPOSSIBLE"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">invalid_argument</span><span class="o">&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Expected exception: "</span> <span class="o">&lt;&lt;</span> <span class="n">err</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Test finished"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Если скомпилировать этот код и запустить, то в консоль должно вывестись:</span>
+<span class="c1">// OK</span>
+<span class="c1">// Expected exception: b cannot be zero</span>
+<span class="c1">// Test finished</span>
+</code></pre></div></div>
+
+<p><img src="/images/fraction2.jpg" alt="img" /></p>
+:ET

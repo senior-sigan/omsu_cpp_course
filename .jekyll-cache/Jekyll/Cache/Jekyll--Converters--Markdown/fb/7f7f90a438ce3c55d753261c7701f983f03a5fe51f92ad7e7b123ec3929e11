@@ -1,0 +1,26 @@
+I"g<h1 id="кусочная-функция">Кусочная функция</h1>
+
+<p>Напишите функцию, вычисляющую значение выражения:</p>
+
+<!-- $$f(x) = \begin{cases}2x^3-1 &\ x< 8 \\ x-3 &\ x > 10 \\ x ^ {-2} &\ \end{cases}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=f%28x%29%20%3D%20%5Cbegin%7Bcases%7D2x%5E3-1%20%26%5C%20x%3C%208%20%5C%5C%20x-3%20%26%5C%20x%20%3E%2010%20%5C%5C%20x%20%5E%20%7B-2%7D%20%26%5C%20%5Cend%7Bcases%7D" alt="формула" /></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include "test.h"
+</span>
+<span class="c1">// func вычисляет значение кусочно заданной функции</span>
+<span class="kt">float</span> <span class="nf">func</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// напиши меня!</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">2001</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">86</span><span class="p">.</span><span class="mi">75</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mo">015625</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">7</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="mi">10</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

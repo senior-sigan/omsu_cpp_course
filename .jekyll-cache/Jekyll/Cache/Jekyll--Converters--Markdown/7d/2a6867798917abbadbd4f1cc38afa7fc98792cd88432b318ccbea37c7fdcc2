@@ -1,0 +1,74 @@
+I"�<h1 id="задом-наперёд">Задом наперёд</h1>
+
+<p>Напишите функцию, которая разворачивает строку задом наперёд. <strong>Внимание</strong>, перезаписывается исходная строка, поэтому вам понадобится функция из <a href="Копирование-строк-в-кучу.md">Копирование строки в кучу</a>.</p>
+
+<p>Код будет выглядеть намного проще, если вы будете использовать функцию <strong>Swap</strong>, чтобы менять местами два символа.</p>
+
+<p>Возьмите вспомогательные функции из <a href="Длина-сроки.md">Длина строки</a> <a href="Swap.md">Swap</a></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "test.h"
+</span>
+<span class="cm">/**
+ * Меняет местами два символа.
+ *
+ * @param a указатель на один символ.
+ * @param b указатель на один символ.
+ */</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="c1">// скопируйте функцию из предыдущей задачи</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">str_length</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">string</span><span class="p">);</span>
+
+<span class="c1">// скопируйте функцию из предыдущей задачи.</span>
+<span class="kt">char</span><span class="o">*</span> <span class="nf">str_dup</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">string</span><span class="p">);</span>
+
+<span class="cm">/**
+ * Разворачивает строку задом наперед.
+ * Например, из "Hello" получится "olleH".
+ * Результат будет записан на месте.
+ *
+ * Если строка не нультерминальная, то поведение не определено.
+ *
+ * @param string нуль терминальная строка, которая будет перевернута на месте.
+ */</span>
+<span class="kt">void</span> <span class="nf">str_reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня!</span>
+  <span class="c1">// Подсказка:</span>
+  <span class="c1">// Используейте функцию str_length</span>
+  <span class="c1">// Используйте функцию swap</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">cli</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня</span>
+  <span class="c1">// 1. считайте с консоли N - длину строки</span>
+  <span class="c1">// 2. аллоцируйте память с помощью malloc на N+1 символов</span>
+  <span class="c1">// 3. считайте с консоли строку длины N (+1 на \0)</span>
+  <span class="c1">// 4. Примегите над строкой str_reverse</span>
+  <span class="c1">// 5. выведите результата в консоль</span>
+  <span class="c1">// 6. почистите память</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+
+  <span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="n">str_dup</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+    <span class="n">ASSERT_STR_EQUAL</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+    <span class="n">str_reverse</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+    <span class="n">ASSERT_STR_EQUAL</span><span class="p">(</span><span class="s">"olleH"</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">test</span><span class="p">();</span>
+  <span class="n">cli</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

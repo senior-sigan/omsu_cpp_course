@@ -1,0 +1,74 @@
+I"T<h1 id="быстрое-рекурсивное-возведение-в-степень">Быстрое рекурсивное возведение в степень</h1>
+
+<p>Напишите программу, возводящее число в целую степень с помощью рекурсии.</p>
+
+<p>Существует более быстрый алгоритм возведения числа в степень, основывающийся на следующем наблюдении:</p>
+
+<!-- $$\begin{aligned} b ^ n = {(b^{n/2})} ^ 2 && if \ n \ is \ even \\ b ^ n = b * b^{n-1} && if \ n \ is \ odd \end{aligned}$$ -->
+
+<p><img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%20b%20%5E%20n%20%3D%20%7B%28b%5E%7Bn/2%7D%29%7D%20%5E%202%20%26%26%20if%20%5C%20n%20%5C%20is%20%5C%20even%20%5C%5C%20b%20%5E%20n%20%3D%20b%20%2A%20b%5E%7Bn-1%7D%20%26%26%20if%20%5C%20n%20%5C%20is%20%5C%20odd%20%5Cend%7Baligned%7D" alt="формула" /></p>
+
+<p>А также примите во внимание факт, что</p>
+
+<!-- $$(b^{n/2})^2 = (b^2) ^ {n/2}$$ -->
+
+<p><img src="https://render.githubusercontent.com/render/math?math=%28b%5E%7Bn/2%7D%29%5E2%20%3D%20%28b%5E2%29%20%5E%20%7Bn/2%7D" alt="фрмула" /></p>
+
+<p>Реализуйте быстрое возведение в степень с помощью рекурсии.</p>
+
+<p>Отличное объяснение, как решить эту задачу, есть в главе <code class="language-plaintext highlighter-rouge">1.2.4. Возведение в степень</code> книги “Структура и интерпретация компьютерных программ”.</p>
+
+<p>Запрещено использовать циклы (for, while, do-while, goto метки). Вместо этого используйте рекурсию.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="cp">#include "test.h"
+</span>
+<span class="c1">// Дополнительные функции создавать можно.</span>
+
+<span class="cm">/**
+ * Быстрое возведение в степень.
+ * Говорят, что можно возводить число рекурсивно в степень быстрее,
+ * чем x*pow(x, n-1).
+ *
+ * Функция должна считаться рекурсивно.
+ * Циклы for, while использовать запрещено.
+ *
+ * @param x - число, которое надо возвести в степень.
+ * @param n - показатель степени.
+ * @return результат возведения числа x в степень n.
+ */</span>
+<span class="kt">double</span> <span class="nf">fast_power</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Напиши меня</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">cli</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня</span>
+  <span class="c1">// 1. Запросите у пользователя числа x и n</span>
+  <span class="c1">// 2. Считайте с консоли числа x и n</span>
+  <span class="c1">// 4. Выведите пользователю результат fast_power(x, n)</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+
+  <span class="n">ASSERT_DOUBLE_EQUAL</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">fast_power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_DOUBLE_EQUAL</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">fast_power</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_DOUBLE_EQUAL</span><span class="p">(</span><span class="mi">14551915</span><span class="p">.</span><span class="mi">228366852</span><span class="p">,</span> <span class="n">fast_power</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_DOUBLE_EQUAL</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mo">003</span><span class="mi">90625</span><span class="p">,</span> <span class="n">fast_power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">test</span><span class="p">();</span>
+  <span class="n">cli</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

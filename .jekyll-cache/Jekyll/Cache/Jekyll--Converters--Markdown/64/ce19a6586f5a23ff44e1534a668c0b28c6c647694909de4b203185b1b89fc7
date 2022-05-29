@@ -1,0 +1,60 @@
+I"�<h1 id="байтомешалка">Байтомешалка</h1>
+
+<p>Напишите функцию <code class="language-plaintext highlighter-rouge">invert(x, p, n)</code>, возвращающую значение x с инвертированными n битами, начиная с позиции p (остальные биты не изменяются).</p>
+
+<p>Числа для проверки вводятся с клавиатуры. Но будьте осторожны! Мы работаем с беззнаковым 8-битным числом x. Что произойдет, если <code class="language-plaintext highlighter-rouge">n = 0</code>, или <code class="language-plaintext highlighter-rouge">n &gt; 8</code>? Протестируйте работу программы на разных данных. Выведите в консоль результаты invert.</p>
+
+<p>Пример: пусть дано число <code class="language-plaintext highlighter-rouge">42==00101010</code>. Тогда <code class="language-plaintext highlighter-rouge">invert(42, 3, 4)==invert(00101010, 3, 4)==01010010==82</code>. Визуализация примера:</p>
+
+<p><img src="/images/байтомешалка.png" alt="картинка" /></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="cp">#include "test.h"
+</span>
+<span class="cm">/**
+ * возвращающую значение x с инвертированными n битами, начиная с позиции p
+ * (остальные биты не изменяются).
+ *
+ * @param x - беззнаковое 8-битное число, над которым применяется операция
+ * @param p - индекс первого бита в x, который будет инвертирован
+ * @param n - количество подряд идущих битов после p, которые будут
+ * инвертированы
+ * @return возвращает беззнаковое 8-битное число как результат
+ */</span>
+<span class="kt">unsigned</span> <span class="kt">char</span> <span class="nf">invert</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">p</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня!!!</span>
+  <span class="c1">// используйте ^ - xor, и сдвиги &gt;&gt; и &lt;&lt;</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">// исправь меня</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">cli</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня</span>
+  <span class="c1">// 1. Запросите у пользователя числа x p n</span>
+  <span class="c1">// 2. примените invert</span>
+  <span class="c1">// 3. выведите результат как число в 10-ой системе счисления</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+
+  <span class="n">ASSERT_UCHAR</span><span class="p">(</span><span class="mi">82</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">invert</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">test</span><span class="p">();</span>
+  <span class="n">cli</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="бонусная-секция">Бонусная секция</h2>
+
+<p><a href="https://www.youtube.com/watch?v=r23poLEN0KU">Смотреть после завершения задания</a></p>
+:ET

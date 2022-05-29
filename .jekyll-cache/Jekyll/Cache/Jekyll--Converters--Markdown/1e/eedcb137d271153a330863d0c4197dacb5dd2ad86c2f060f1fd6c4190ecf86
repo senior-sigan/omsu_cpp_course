@@ -1,0 +1,45 @@
+I"-<h1 id="копирование-строк">Копирование строк</h1>
+
+<p>Напишите функцию для копирования одной строки, на которую указывает <code class="language-plaintext highlighter-rouge">src</code>, в буфер, на который указывает <code class="language-plaintext highlighter-rouge">dst</code>. Терминальный нулевой байт копируется тоже.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdlib.h&gt;
+</span>
+<span class="cp">#include "test.h"
+</span>
+<span class="cm">/**
+ * Копирует нультерминальную строку из src в dst.
+ *
+ * @param dest указатель на массив символов, куда скопировать строку.
+ * @param src указатель на нультерминальну строку, откуда копировать.
+ */</span>
+<span class="kt">void</span> <span class="nf">str_copy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">dst</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: напиши меня!</span>
+  <span class="n">dst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>  <span class="c1">// исправь меня!</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+  <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+    <span class="n">str_copy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+    <span class="n">ASSERT_STR_EQUAL</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">calloc</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+    <span class="n">str_copy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+    <span class="n">ASSERT_STR_EQUAL</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">test</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,46 @@
+I"�<h1 id="абсолютная-величина">Абсолютная величина</h1>
+
+<p>Напишите функцию, которая вычисляет значение выражения <code class="language-plaintext highlighter-rouge">f(x)</code> не используя функцию стандартной библиотеки <code class="language-plaintext highlighter-rouge">abs</code>, которая вычисляет <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D0%BE%D0%BB%D1%8E%D1%82%D0%BD%D0%B0%D1%8F_%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D0%B0">абсолютное значение числа</a>. Число <code class="language-plaintext highlighter-rouge">x</code> водится с клавиатуры.</p>
+
+<!-- $$f(x) = ||2x+3|-1|$$ -->
+
+<p><img src="https://render.githubusercontent.com/render/math?math=f(x)%20%3D%20%7C%7C2x%2B3%7C-1%7C" alt="формула" /></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "test.h"  // подключаем бибилиотеку тестирования
+</span>
+<span class="c1">// abs возвращает абсолютное значение числа x</span>
+<span class="c1">// В матиматике это |x|: |-3| = 3.</span>
+<span class="kt">float</span> <span class="nf">abs_</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: Напиши меня!!</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Напишите на Си функцию: f(x) = ||2x+3|-1|</span>
+<span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: Напиши меня!!</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить если вы удалите тесты T_T</span>
+  <span class="c1">// Они проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если в коде ошибки, то в консоли вы увидите ошибку и пояснение</span>
+
+  <span class="c1">// Проверяем, что абсолютное значение считается</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">abs_</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">5</span><span class="p">.</span><span class="mi">33</span><span class="p">,</span> <span class="n">abs_</span><span class="p">(</span><span class="mi">5</span><span class="p">.</span><span class="mi">33</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1415</span><span class="p">,</span> <span class="n">abs_</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">1415</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="c1">// Проверяем, что функция f(x) работает</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Компилятор требует, чтобы в конце файла всегда была пустая строка.</span>
+</code></pre></div></div>
+
+<p><a href="https://repl.it/@IlyaSiganov/abs#main.c">https://repl.it/@IlyaSiganov/abs#main.c</a></p>
+:ET

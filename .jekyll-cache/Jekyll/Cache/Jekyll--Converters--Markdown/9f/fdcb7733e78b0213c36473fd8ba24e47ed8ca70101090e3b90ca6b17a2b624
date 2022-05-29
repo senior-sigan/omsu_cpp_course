@@ -1,0 +1,79 @@
+I"�.<h1 id="квадратное-уравнение">Квадратное уравнение</h1>
+
+<p>Напишите программу, которая решает любые квадратное уравнение в действительных числах методом дискриминанта.</p>
+
+<p>Необходимо обработать все граничные ситуации.</p>
+
+<!-- $$f(x) = ax^2 + bx + c$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=f%28x%29%20%3D%20ax%5E2%20%2B%20bx%20%2B%20c" alt="формула" /></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "test.h"
+</span>
+<span class="c1">// Solution - это структура, которая хранит в себе набор решений квадратного</span>
+<span class="c1">// уравнения. Если решений уравнение нет, то n_solutions = 0, а содержимое x1 и</span>
+<span class="c1">// x2 неопределено. Если решения уравнения одно, то n_solutions = 1 и x1==x2</span>
+<span class="c1">// == единственному решению. Если решений два, то n_solutions = 2, в x1 лежит</span>
+<span class="c1">// решение, полученное вычитанием дискриминанта, в x1 лежит решение, полученное</span>
+<span class="c1">// прибавлением дискриминанта</span>
+<span class="k">struct</span> <span class="n">Solution</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n_solutions</span><span class="p">;</span>  <span class="c1">// количество решений. Ноль, 1 или 2</span>
+  <span class="kt">float</span> <span class="n">x1</span><span class="p">;</span>         <span class="c1">// первый корень уравнения</span>
+  <span class="kt">float</span> <span class="n">x2</span><span class="p">;</span>         <span class="c1">// второй корень уравнения</span>
+<span class="p">};</span>
+
+<span class="c1">// quadratic_equation - находит корни квадратного уравнения a*x*x + b*x + c = 0.</span>
+<span class="c1">// где</span>
+<span class="k">struct</span> <span class="n">Solution</span> <span class="nf">quadratic_equation</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span><span class="p">,</span> <span class="kt">float</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Solution</span> <span class="n">solution</span><span class="p">;</span>
+
+  <span class="c1">// напиши меня!</span>
+  <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// удали меня!</span>
+  <span class="n">solution</span><span class="p">.</span><span class="n">x1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span>    <span class="c1">// удали меня!</span>
+  <span class="n">solution</span><span class="p">.</span><span class="n">x2</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span>    <span class="c1">// удали меня!</span>
+
+  <span class="k">return</span> <span class="n">solution</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Это тесты. НЕ УДАЛЯЙТЕ ИХ!</span>
+  <span class="c1">// Преподаватель будет грустить, если вы удалите тесты T_T.</span>
+  <span class="c1">// Тесты проверяют, что ваш код работает правильно.</span>
+  <span class="c1">// Если в задача решена неправильно,</span>
+  <span class="c1">// то в консоли вы увидите ошибку и пояснение.</span>
+  <span class="c1">// Сдавайте лабу, когда устраните все ошибки в тестах.</span>
+  <span class="c1">// Если возникли трудности, то попросите преподавателя вам помочь ^_^.</span>
+
+  <span class="k">struct</span> <span class="n">Solution</span> <span class="n">solution</span><span class="p">;</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+
+  <span class="n">solution</span> <span class="o">=</span> <span class="n">quadratic_equation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">n_solutions</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+  <span class="n">ASSERT_FLOAT_EQUAL</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">solution</span><span class="p">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">EPSILON</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

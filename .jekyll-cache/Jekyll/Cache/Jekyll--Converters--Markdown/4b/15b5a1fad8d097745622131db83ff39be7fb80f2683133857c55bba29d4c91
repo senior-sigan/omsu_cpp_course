@@ -1,0 +1,46 @@
+I"<h1 id="linked--array-list-на-с">Linked &amp; Array List на С++</h1>
+
+<p>Цель лабы - познакомиться с С++ на уже известной вам задаче:  <a href="/tasks_1/Список-LinkedList-&amp;-ArrayList.md">Список: LinkedList &amp; ArrayList</a></p>
+
+<p>Нужно просто превратить структуру вашего листа в класс, а все функции для работы с листом сделать методами класса (функциями внутри класса).</p>
+
+<p><a href="https://repl.it/@IlyaSiganov/ListCPP#main.cpp"><strong>Repl.it шаблон задачи</strong></a></p>
+
+<p>Чеклист задачи:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть конструктор, который создает пустую коллекцию. Это вместо <code class="language-plaintext highlighter-rouge">CreateList()</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть деструктор, который уничтожает коллекцию и всё что хранится внутри нее. Это вместо функции <code class="language-plaintext highlighter-rouge">Destroy(struct List*)</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Коллекция умеет хранить только <code class="language-plaintext highlighter-rouge">int</code> переменные.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть все методы для работы с коллекцией из задачи для Си (вставка, удаление узла и прочее, обращение к элементу, взятие длины)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Вместо функции <code class="language-plaintext highlighter-rouge">Get(int index)</code> нужно переопределить оператор квадратные скобки!</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Есть тесты и код их проходит</li>
+</ul>
+
+<p>В задании <a href="/tasks_2/Шаблонный-List-и-Итераторы.md">Шаблонный List и Итераторы</a>  вы улучшите этот код и добавите</p>
+
+<ul>
+  <li>Сложные конструкторы</li>
+  <li>Шаблоны, чтобы хранить любые типы</li>
+  <li>Итераторы</li>
+</ul>
+
+<h2 id="как-переопределить-квадратные-скобки">Как переопределить квадратные скобки?</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;  // для std::cout
+</span>
+<span class="k">class</span> <span class="nc">Box</span> <span class="p">{</span>
+  <span class="nl">public:</span> 
+    <span class="kt">int</span> <span class="k">operator</span><span class="p">[](</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// тут можно написать что-то хитрое</span>
+      <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Box</span> <span class="n">box</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">box</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="c1">// выведет в консоль 42 !!!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

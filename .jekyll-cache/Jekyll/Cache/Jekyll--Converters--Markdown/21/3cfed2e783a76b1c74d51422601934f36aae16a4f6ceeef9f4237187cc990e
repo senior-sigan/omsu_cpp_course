@@ -1,0 +1,36 @@
+I"�<h1 id="итеративный-фибоначчи">Итеративный Фибоначчи</h1>
+
+<p>Написать функцию, печатающую в консоль $N$ первых элементов последовательности Фибоначчи. Числа Фибоначчи образуются по правилу:</p>
+
+<!-- $$a_1 = 1, \\ a_2 = 1, \\ a_{i+1}=a_i + a_{i-1}$$ -->
+<p><img src="https://render.githubusercontent.com/render/math?math=a_1%20%3D%201%2C%20%5C%5C%20a_2%20%3D%201%2C%20%5C%5C%20a_%7Bi%2B1%7D%3Da_i%20%2B%20a_%7Bi-1%7D" alt="формула" /></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "test.h" // библиотека для тестирования
+</span>
+<span class="c1">// fib выдает N-ый член последовательности Фибоначчи.</span>
+<span class="c1">// Правило последовательности:</span>
+<span class="c1">// fib(0) == 0</span>
+<span class="c1">// fib(1) == 1</span>
+<span class="c1">// fib(2) == 1</span>
+<span class="c1">// fib(n+1) = fib(n) + fib(n-1)</span>
+<span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Напиши меня!</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">89</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">11</span><span class="p">));</span>
+  <span class="n">ASSERT_INT</span><span class="p">(</span><span class="mi">987</span><span class="p">,</span> <span class="o">==</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://repl.it/@IlyaSiganov/iterfib#main.c">https://repl.it/@IlyaSiganov/iterfib#main.c</a></p>
+:ET
